@@ -1,0 +1,31 @@
+drop database if exists api_database;
+CREATE DATABASE api_database;
+USE api_database;
+
+-- Table to store users
+
+CREATE TABLE users (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    username VARCHAR(50) NOT NULL UNIQUE,
+
+    password VARCHAR(255) NOT NULL
+
+);
+
+
+
+-- Table to store the data managed by the API
+
+CREATE TABLE records (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    content TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+);
